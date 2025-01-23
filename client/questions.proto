@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+
+service QuestionService {
+  
+  rpc SearchByTitle (SearchByTitleRequest) returns (SearchByTitleResponse);
+  
+  
+  rpc GetById (GetByIdRequest) returns (Question);
+}
+
+message SearchByTitleRequest {
+  string title = 1;
+  int32 page = 2;
+  int32 limit = 3;
+  
+}
+message SearchByTitleResponse {
+  repeated Question questions = 1;  
+}
+
+
+message GetByIdRequest {
+  string question_id = 1;  
+}
+
+
+message Question {
+  string _id = 1;  
+  string type = 2;  
+  string title = 3;  
+  string solution = 4;  
+  string anagramType = 5;  
+
+  
+  repeated Option options = 6;  
+
+  
+  repeated Block blocks = 7;  
+  
+  
+  string siblingId = 8;  
+}
+
+
+message Option {
+  string text = 1;  
+  bool isCorrectAnswer = 2;  
+}
+
+
+message Block {
+  string text = 1;  
+  bool showInOption = 2;  
+  bool isAnswer = 3;  
+}
