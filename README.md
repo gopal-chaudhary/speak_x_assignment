@@ -1,5 +1,6 @@
 # Project Setup Guide
-
+- example output
+<img src="./view/img.png">
 This guide will help you set up the frontend, backend, and Envoy server proxy for your project.
 
 ### Prerequisites
